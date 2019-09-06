@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Android,Java,jni,">
+  <meta name="keywords" content="View,">
 
 
 
@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="参考书籍《Java核心技术 卷II》。   本文仅提供jni的语法，不包含具体编译器的操作。   在Android Studio 2.3中使用jni的教程：http://mp.weixin.qq.com/s/5DHJa5E-lZzy21-9edxoIg  使用目的&amp;emsp;&amp;emsp;虽然使用Java开发Android程序相对于用C有着各种各样的优势，但是Java也有一些不知的地方，比如能被轻">
-<meta name="keywords" content="Android,Java,jni">
+<meta name="description" content="基本用法使用Glide加载图片非常方便，只要简单三步链式调用即可： 123Glide.with(context)     .load(&quot;url&quot;)     .into(imageView);">
+<meta name="keywords" content="View">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jni笔记">
-<meta property="og:url" content="http://blog.jay86.com/2017/04/21/2K5NAH5.html">
+<meta property="og:title" content="Glide源码解析">
+<meta property="og:url" content="http://blog.jay86.com/2019/07/13/168K6ZG.html">
 <meta property="og:site_name" content="Jay&#39;s Blog">
-<meta property="og:description" content="参考书籍《Java核心技术 卷II》。   本文仅提供jni的语法，不包含具体编译器的操作。   在Android Studio 2.3中使用jni的教程：http://mp.weixin.qq.com/s/5DHJa5E-lZzy21-9edxoIg  使用目的&amp;emsp;&amp;emsp;虽然使用Java开发Android程序相对于用C有着各种各样的优势，但是Java也有一些不知的地方，比如能被轻">
+<meta property="og:description" content="基本用法使用Glide加载图片非常方便，只要简单三步链式调用即可： 123Glide.with(context)     .load(&quot;url&quot;)     .into(imageView);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T16:22:32.325Z">
+<meta property="og:updated_time" content="2019-09-06T16:23:37.829Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jni笔记">
-<meta name="twitter:description" content="参考书籍《Java核心技术 卷II》。   本文仅提供jni的语法，不包含具体编译器的操作。   在Android Studio 2.3中使用jni的教程：http://mp.weixin.qq.com/s/5DHJa5E-lZzy21-9edxoIg  使用目的&amp;emsp;&amp;emsp;虽然使用Java开发Android程序相对于用C有着各种各样的优势，但是Java也有一些不知的地方，比如能被轻">
+<meta name="twitter:title" content="Glide源码解析">
+<meta name="twitter:description" content="基本用法使用Glide加载图片非常方便，只要简单三步链式调用即可： 123Glide.with(context)     .load(&quot;url&quot;)     .into(imageView);">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.jay86.com/2017/04/21/2K5NAH5.html">
+  <link rel="canonical" href="http://blog.jay86.com/2019/07/13/168K6ZG.html">
 
 
 
 
 
-  <title> Jni笔记 | Jay's Blog </title>
+  <title> Glide源码解析 | Jay's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -316,7 +316,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.jay86.com/2017/04/21/2K5NAH5.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.jay86.com/2019/07/13/168K6ZG.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jay">
@@ -337,7 +337,7 @@
             
             
               
-                Jni笔记
+                Glide源码解析
               
             
           </h1>
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-21T23:34:21+08:00">
-                2017-04-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-13T12:59:12+08:00">
+                2019-07-13
               </time>
             
 
@@ -375,8 +375,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -392,7 +392,7 @@
 
           
           
-             <span id="/2017/04/21/2K5NAH5.html" class="leancloud_visitors" data-flag-title="Jni笔记">
+             <span id="/2019/07/13/168K6ZG.html" class="leancloud_visitors" data-flag-title="Glide源码解析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -421,91 +421,31 @@
       
 
       
-        <blockquote>
-<p>参考书籍《Java核心技术 卷II》。</p>
-</blockquote>
-<blockquote>
-<p>本文仅提供jni的语法，不包含具体编译器的操作。</p>
-</blockquote>
-<blockquote>
-<p>在Android Studio 2.3中使用jni的教程：<a href="http://mp.weixin.qq.com/s/5DHJa5E-lZzy21-9edxoIg" target="_blank" rel="noopener">http://mp.weixin.qq.com/s/5DHJa5E-lZzy21-9edxoIg</a></p>
-</blockquote>
-<h1 id="使用目的"><a href="#使用目的" class="headerlink" title="使用目的"></a>使用目的</h1><p>&emsp;&emsp;虽然使用Java开发Android程序相对于用C有着各种各样的优势，但是Java也有一些不知的地方，比如能被轻松地反编译，所以在进行一些比较隐私的操作时，C是一个更好的选择。另外使用C也能提高不少程序的效率，进行一些底层的操作也比较方便。</p>
+        <h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><p>使用Glide加载图片非常方便，只要简单三步链式调用即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(context)</span><br><span class="line">     .load(<span class="string">"url"</span>)</span><br><span class="line">     .into(imageView);</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><p>在Java类中放置一个使用<code>native</code>关键字表示的本地方法，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pulic <span class="class"><span class="keyword">class</span> <span class="title">HelloJni</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">      *类似于抽象方法不提供方法的具体实现</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">hello</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>为实现这个方法需建立一个与之对应的C语言函数。为了与之对应，必须使用完整Java方法名,例如:<code>com.jay86.HelloJni,hello</code>，然后将<code>.</code>替换为<code>_</code>并加上<code>Java_</code>前缀，例如：<code>Java_com_jay86_HelloJni_hello</code>。完整代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_jay86_HelloJni_hello(</span><br><span class="line">        JNIEnv* env <span class="comment">/*调用jni函数需要用到的东西，下面会看到*/</span>,</span><br><span class="line">        jclass cl <span class="comment">/*非静态时是jobject相当于this，静态时是jclass相当于Class*/</span>) &#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> hello = <span class="string">"Hello from C++"</span>;</span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(hello.c_str());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>最后在HelloJni类中加载它:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pulic <span class="class"><span class="keyword">class</span> <span class="title">HelloJni</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="comment">/*native-lib是C\C++的文件名*/</span></span><br><span class="line">        System.loadLibrary(<span class="string">"native-lib"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">      *类似于抽象方法不提供方法的具体实现</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">hello</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样，一个jni程序就完成了。但是jni程序还有更多需要学习的。</p>
-<h1 id="参数传递与返回值"><a href="#参数传递与返回值" class="headerlink" title="参数传递与返回值"></a>参数传递与返回值</h1><h2 id="Java数据类型与C语言数据类型对应关系"><a href="#Java数据类型与C语言数据类型对应关系" class="headerlink" title="Java数据类型与C语言数据类型对应关系"></a>Java数据类型与C语言数据类型对应关系</h2><table>
-<thead>
-<tr>
-<th>Java</th>
-<th>C</th>
-<th style="text-align:center">字节</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>boolean</td>
-<td>jboolean</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td>byte</td>
-<td>jbyte</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td>char</td>
-<td>jchar</td>
-<td style="text-align:center">2</td>
-</tr>
-<tr>
-<td>short</td>
-<td>jshort</td>
-<td style="text-align:center">2</td>
-</tr>
-<tr>
-<td>int</td>
-<td>jint</td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td>long</td>
-<td>jlong</td>
-<td style="text-align:center">8</td>
-</tr>
-<tr>
-<td>float</td>
-<td>jfloat</td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td>double</td>
-<td>jdouble</td>
-<td style="text-align:center">8</td>
-</tr>
-</tbody>
-</table>
-<h2 id="实现简单参数传递"><a href="#实现简单参数传递" class="headerlink" title="实现简单参数传递"></a>实现简单参数传递</h2><p>ps:方便起见，直接在之前的代码中添加了两个参数，并没有对其做任何操作。</p>
+<h1 id="with"><a href="#with" class="headerlink" title="with()"></a>with()</h1><p><code>Glide.with()</code>方法的所有重载方法都是下面的形式，只是传入的参数类型有区别，这里主要分为两步<code>getRetriever()</code>和<code>get()</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RequestManager <span class="title">with</span><span class="params">(@NonNull Context context)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> getRetriever(context).get(context);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不管<code>with()</code>方法的参数是啥，其实最终都是通过<code>getRetriever()</code>方法回去到<code>RequestManagerRetriever</code>对象，再通过它获取到<code>RequestManager</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> RequestManagerRetriever <span class="title">getRetriever</span><span class="params">(@Nullable Context context)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// Context could be null for other reasons (ie the user passes in null), but in practice it will</span></span><br><span class="line">  <span class="comment">// only occur due to errors with the Fragment lifecycle.</span></span><br><span class="line">  Preconditions.checkNotNull(</span><br><span class="line">      context,</span><br><span class="line">      <span class="string">"You cannot start a load on a not yet attached View or a Fragment where getActivity() "</span></span><br><span class="line">          + <span class="string">"returns null (which usually occurs when getActivity() is called before the Fragment "</span></span><br><span class="line">          + <span class="string">"is attached or after the Fragment is destroyed)."</span>);</span><br><span class="line">  <span class="comment">//主要的代码</span></span><br><span class="line">  <span class="keyword">return</span> Glide.get(context).getRequestManagerRetriever();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重点主要是在<code>RequestManagerRetriever.get(context)</code>上，该方法会判断传入的<code>context</code>的实际类型，并返回不用的<code>RequestManager</code>，主要有如下几种特殊类型：</p>
 <ul>
-<li><p>Java中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pulic <span class="class"><span class="keyword">class</span> <span class="title">HelloJni</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.loadLibrary(<span class="string">"native-lib"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">hello</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">double</span> b)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>C中</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> <span class="comment">/*C++需要添加上这一句，不太清楚原因*/</span></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_jay86_HelloJni_hello(</span><br><span class="line">        JNIEnv* env,</span><br><span class="line">        jclass cl， jint a, jdouble b) &#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> hello = <span class="string">"Hello from C++"</span>;</span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(hello.c_str());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li><code>FragmentActivity</code></li>
+<li><code>Activity</code></li>
+<li><code>ContextWrapper</code></li>
+<li><code>ApplicationContext</code></li>
 </ul>
-<h2 id="字符串参数"><a href="#字符串参数" class="headerlink" title="字符串参数"></a>字符串参数</h2><p>由于C语言和Java语言的字符串存在一系列的不同，传递字符串时需要进行一些处理：</p>
-<ul>
-<li><p>jstring -&gt; char*</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jString jstr = <span class="string">"hello world"</span>;</span><br><span class="line"><span class="keyword">char</span>* cstr = (*env)-&gt;GetStringUTFChars(env, jstr, <span class="literal">NULL</span>);</span><br><span class="line"><span class="comment">//不再访问时释放</span></span><br><span class="line">(*env)-&gt;ReleaseStringUtf(env, format, cformat);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>char* -&gt; jstring</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C</span></span><br><span class="line"><span class="keyword">char</span> cstr[] = <span class="string">"hello world"</span>;</span><br><span class="line">jstring jstr;</span><br><span class="line">jstr = (*env)-&gt;NewStringUTF(env, cstr);</span><br><span class="line"></span><br><span class="line"><span class="comment">//C++</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> hello = <span class="string">"Hello from C++"</span>;</span><br><span class="line">jstring jstr;</span><br><span class="line">jstr = env-&gt;NewStringUTF(hello.c_str());</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="访问域"><a href="#访问域" class="headerlink" title="访问域"></a>访问域</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> RequestManager <span class="title">get</span><span class="params">(@NonNull Context context)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (context == <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"You cannot start a load on a null Context"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Util.isOnMainThread() &amp;&amp; !(context <span class="keyword">instanceof</span> Application)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (context <span class="keyword">instanceof</span> FragmentActivity) &#123;</span><br><span class="line">      <span class="keyword">return</span> get((FragmentActivity) context);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (context <span class="keyword">instanceof</span> Activity) &#123;</span><br><span class="line">      <span class="keyword">return</span> get((Activity) context);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (context <span class="keyword">instanceof</span> ContextWrapper) &#123;</span><br><span class="line">      <span class="keyword">return</span> get(((ContextWrapper) context).getBaseContext());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> getApplicationManager(context);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于传入的是<code>ApplicationContext</code>或者不是在UI线程执行的情况，Glide只是简单的获取了单例的<code>ApplicationManager</code>对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> RequestManager <span class="title">getApplicationManager</span><span class="params">(@NonNull Context context)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// Either an application context or we're on a background thread.</span></span><br><span class="line">  <span class="keyword">if</span> (applicationManager == <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (applicationManager == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">// Normally pause/resume is taken care of by the fragment we add to the fragment or</span></span><br><span class="line">        <span class="comment">// activity. However, in this case since the manager attached to the application will not</span></span><br><span class="line">        <span class="comment">// receive lifecycle events, we must force the manager to start resumed using</span></span><br><span class="line">        <span class="comment">// ApplicationLifecycle.</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// TODO(b/27524013): Factor out this Glide.get() call.</span></span><br><span class="line">        Glide glide = Glide.get(context.getApplicationContext());</span><br><span class="line">        applicationManager =</span><br><span class="line">            factory.build(</span><br><span class="line">                glide,</span><br><span class="line">                <span class="keyword">new</span> ApplicationLifecycle(),</span><br><span class="line">                <span class="keyword">new</span> EmptyRequestManagerTreeNode(),</span><br><span class="line">                context.getApplicationContext());</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> applicationManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果传入的是<code>FragmentActivity</code>和<code>Activity</code>的情况，采取的方案比较类型，首先判断是否在UI线程，如果不在，则走的逻辑和<code>ApplicationContext</code>的情况相同，否则继续调用<code>supportFragmentGet()</code>或<code>fragmentGet()</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> RequestManager <span class="title">get</span><span class="params">(@NonNull FragmentActivity activity)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (Util.isOnBackgroundThread()) &#123;</span><br><span class="line">    <span class="keyword">return</span> get(activity.getApplicationContext());</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    assertNotDestroyed(activity);</span><br><span class="line">    FragmentManager fm = activity.getSupportFragmentManager();</span><br><span class="line">    <span class="keyword">return</span> supportFragmentGet(</span><br><span class="line">        activity, fm, <span class="comment">/*parentHint=*/</span> <span class="keyword">null</span>, isActivityVisible(activity));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> RequestManager <span class="title">get</span><span class="params">(@NonNull FragmentActivity activity)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (Util.isOnBackgroundThread()) &#123;</span><br><span class="line">    <span class="keyword">return</span> get(activity.getApplicationContext());</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    assertNotDestroyed(activity);</span><br><span class="line">    FragmentManager fm = activity.getSupportFragmentManager();</span><br><span class="line">    <span class="keyword">return</span> supportFragmentGet(</span><br><span class="line">        activity, fm, <span class="comment">/*parentHint=*/</span> <span class="keyword">null</span>, isActivityVisible(activity));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>supportFragmentGet()</code>和<code>fragmentGet()</code>的实现类似，只是一个用的app包下的Fragment，一个用的Support包下的Fragment，以<code>supportFragmentGet()</code>为例，该方法会创建一个没有View的空Fragment，并将它添加到Activity中，Glide会通过它对Activity的生命周期进行监听，达到根据Activity生命周期进行加载的目的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> RequestManager <span class="title">supportFragmentGet</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    @NonNull Context context,</span></span></span><br><span class="line"><span class="function"><span class="params">    @NonNull FragmentManager fm,</span></span></span><br><span class="line"><span class="function"><span class="params">    @Nullable Fragment parentHint,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">boolean</span> isParentVisible)</span> </span>&#123;</span><br><span class="line">  SupportRequestManagerFragment current =</span><br><span class="line">      getSupportRequestManagerFragment(fm, parentHint, isParentVisible);</span><br><span class="line">  RequestManager requestManager = current.getRequestManager();</span><br><span class="line">  <span class="keyword">if</span> (requestManager == <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="comment">// TODO(b/27524013): Factor out this Glide.get() call.</span></span><br><span class="line">    Glide glide = Glide.get(context);</span><br><span class="line">    requestManager =</span><br><span class="line">        factory.build(</span><br><span class="line">            glide, current.getGlideLifecycle(), current.getRequestManagerTreeNode(), context);</span><br><span class="line">    current.setRequestManager(requestManager);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> requestManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h1><p><code>RequestManager.load()</code>方法会先使用<code>asDrawable()</code>方法创建一个<code>RequestBuilder&lt;Drawable&gt;</code>对象，再调用<code>RequestBuilder</code>对象的<code>load()</code>方法，最终调用<code>loadGeneric()</code>方法设置数据源，并设置数据源以设置的标记为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> RequestBuilder&lt;Drawable&gt; <span class="title">load</span><span class="params">(@Nullable String string)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> asDrawable().load(string);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> RequestBuilder&lt;TranscodeType&gt; <span class="title">load</span><span class="params">(@Nullable String string)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> loadGeneric(string);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> RequestBuilder&lt;TranscodeType&gt; <span class="title">loadGeneric</span><span class="params">(@Nullable Object model)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.model = model;</span><br><span class="line">  isModelSet = <span class="keyword">true</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从名字可以看到，<code>RequestBuilder</code>实际上使用的是<code>Builder</code>模式，在此之上常见的<code>error()</code>、<code>placeHolder()</code>等方法都是基于此。</p>
+<h1 id="into"><a href="#into" class="headerlink" title="into()"></a>into()</h1>
       
     </div>
 
@@ -534,11 +474,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
-          
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-            <a href="/tags/jni/" rel="tag"># jni</a>
+            <a href="/tags/View/" rel="tag"># View</a>
           
         </div>
       
@@ -551,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/20/4R2RFR.html" rel="next" title="通过Gradle将库提交至binary">
-                <i class="fa fa-chevron-left"></i> 通过Gradle将库提交至binary
+              <a href="/2019/07/10/1WMWQEQ.html" rel="next" title="EventBus源码分析">
+                <i class="fa fa-chevron-left"></i> EventBus源码分析
               </a>
             
           </div>
@@ -561,8 +497,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/16/35FZ000.html" rel="prev" title="Git常用命令">
-                Git常用命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/06/F81B99.html" rel="prev" title="常用设计模式">
+                常用设计模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -746,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用目的"><span class="nav-number">1.</span> <span class="nav-text">使用目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单使用"><span class="nav-number">2.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参数传递与返回值"><span class="nav-number">3.</span> <span class="nav-text">参数传递与返回值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java数据类型与C语言数据类型对应关系"><span class="nav-number">3.1.</span> <span class="nav-text">Java数据类型与C语言数据类型对应关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现简单参数传递"><span class="nav-number">3.2.</span> <span class="nav-text">实现简单参数传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串参数"><span class="nav-number">3.3.</span> <span class="nav-text">字符串参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问域"><span class="nav-number">3.4.</span> <span class="nav-text">访问域</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本用法"><span class="nav-number">1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#with"><span class="nav-number">2.</span> <span class="nav-text">with()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#load"><span class="nav-number">3.</span> <span class="nav-text">load()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#into"><span class="nav-number">4.</span> <span class="nav-text">into()</span></a></li></ol></div>
             
 
           </div>

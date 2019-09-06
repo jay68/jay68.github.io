@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Android,Java,jni,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="参考书籍《Java核心技术 卷II》。   本文仅提供jni的语法，不包含具体编译器的操作。   在Android Studio 2.3中使用jni的教程：http://mp.weixin.qq.com/s/5DHJa5E-lZzy21-9edxoIg  使用目的&amp;emsp;&amp;emsp;虽然使用Java开发Android程序相对于用C有着各种各样的优势，但是Java也有一些不知的地方，比如能被轻">
-<meta name="keywords" content="Android,Java,jni">
+<meta name="description" content="六大原则 单一职责原则：一个类中应该是一组相关性很高的函数、数据的封装； 开闭原则：软件中的对象（类、模块、函数等）应该对于扩展事开放的，但是对于修改是封闭的； 里氏替换原则：所有引用基类的地方必须能透明地使用其子类的对象； 依赖倒置原则：模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系通过接口或抽象类产生； 接口隔离原则：客户端不应该依赖它不需要的接口，即类间的依赖关系应该建">
+<meta name="keywords" content="Java, Android, RecyclerView, View, Gradle, jni, 事件分发, 消息机制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jni笔记">
-<meta property="og:url" content="http://blog.jay86.com/2017/04/21/2K5NAH5.html">
+<meta property="og:title" content="常用设计模式">
+<meta property="og:url" content="http://blog.jay86.com/2019/09/06/F81B99.html">
 <meta property="og:site_name" content="Jay&#39;s Blog">
-<meta property="og:description" content="参考书籍《Java核心技术 卷II》。   本文仅提供jni的语法，不包含具体编译器的操作。   在Android Studio 2.3中使用jni的教程：http://mp.weixin.qq.com/s/5DHJa5E-lZzy21-9edxoIg  使用目的&amp;emsp;&amp;emsp;虽然使用Java开发Android程序相对于用C有着各种各样的优势，但是Java也有一些不知的地方，比如能被轻">
+<meta property="og:description" content="六大原则 单一职责原则：一个类中应该是一组相关性很高的函数、数据的封装； 开闭原则：软件中的对象（类、模块、函数等）应该对于扩展事开放的，但是对于修改是封闭的； 里氏替换原则：所有引用基类的地方必须能透明地使用其子类的对象； 依赖倒置原则：模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系通过接口或抽象类产生； 接口隔离原则：客户端不应该依赖它不需要的接口，即类间的依赖关系应该建">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T16:22:32.325Z">
+<meta property="og:updated_time" content="2019-09-06T16:47:12.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jni笔记">
-<meta name="twitter:description" content="参考书籍《Java核心技术 卷II》。   本文仅提供jni的语法，不包含具体编译器的操作。   在Android Studio 2.3中使用jni的教程：http://mp.weixin.qq.com/s/5DHJa5E-lZzy21-9edxoIg  使用目的&amp;emsp;&amp;emsp;虽然使用Java开发Android程序相对于用C有着各种各样的优势，但是Java也有一些不知的地方，比如能被轻">
+<meta name="twitter:title" content="常用设计模式">
+<meta name="twitter:description" content="六大原则 单一职责原则：一个类中应该是一组相关性很高的函数、数据的封装； 开闭原则：软件中的对象（类、模块、函数等）应该对于扩展事开放的，但是对于修改是封闭的； 里氏替换原则：所有引用基类的地方必须能透明地使用其子类的对象； 依赖倒置原则：模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系通过接口或抽象类产生； 接口隔离原则：客户端不应该依赖它不需要的接口，即类间的依赖关系应该建">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.jay86.com/2017/04/21/2K5NAH5.html">
+  <link rel="canonical" href="http://blog.jay86.com/2019/09/06/F81B99.html">
 
 
 
 
 
-  <title> Jni笔记 | Jay's Blog </title>
+  <title> 常用设计模式 | Jay's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -316,7 +316,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.jay86.com/2017/04/21/2K5NAH5.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.jay86.com/2019/09/06/F81B99.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jay">
@@ -337,7 +337,7 @@
             
             
               
-                Jni笔记
+                常用设计模式
               
             
           </h1>
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-21T23:34:21+08:00">
-                2017-04-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-06T21:52:57+08:00">
+                2019-09-06
               </time>
             
 
@@ -375,8 +375,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/春招/" itemprop="url" rel="index">
+                    <span itemprop="name">春招</span>
                   </a>
                 </span>
 
@@ -392,7 +392,7 @@
 
           
           
-             <span id="/2017/04/21/2K5NAH5.html" class="leancloud_visitors" data-flag-title="Jni笔记">
+             <span id="/2019/09/06/F81B99.html" class="leancloud_visitors" data-flag-title="常用设计模式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -421,91 +421,50 @@
       
 
       
-        <blockquote>
-<p>参考书籍《Java核心技术 卷II》。</p>
-</blockquote>
-<blockquote>
-<p>本文仅提供jni的语法，不包含具体编译器的操作。</p>
-</blockquote>
-<blockquote>
-<p>在Android Studio 2.3中使用jni的教程：<a href="http://mp.weixin.qq.com/s/5DHJa5E-lZzy21-9edxoIg" target="_blank" rel="noopener">http://mp.weixin.qq.com/s/5DHJa5E-lZzy21-9edxoIg</a></p>
-</blockquote>
-<h1 id="使用目的"><a href="#使用目的" class="headerlink" title="使用目的"></a>使用目的</h1><p>&emsp;&emsp;虽然使用Java开发Android程序相对于用C有着各种各样的优势，但是Java也有一些不知的地方，比如能被轻松地反编译，所以在进行一些比较隐私的操作时，C是一个更好的选择。另外使用C也能提高不少程序的效率，进行一些底层的操作也比较方便。</p>
+        <h1 id="六大原则"><a href="#六大原则" class="headerlink" title="六大原则"></a>六大原则</h1><ul>
+<li>单一职责原则：一个类中应该是一组相关性很高的函数、数据的封装；</li>
+<li>开闭原则：软件中的对象（类、模块、函数等）应该对于扩展事开放的，但是对于修改是封闭的；</li>
+<li>里氏替换原则：所有引用基类的地方必须能透明地使用其子类的对象；</li>
+<li>依赖倒置原则：模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系通过接口或抽象类产生；</li>
+<li>接口隔离原则：客户端不应该依赖它不需要的接口，即类间的依赖关系应该建立在最小的接口上；</li>
+<li>迪米特原则：一个对象应该对其他对象有最少的了解，即类的内部如何实现与调用者或者依赖者没有关系。</li>
+</ul>
 <a id="more"></a>
-<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><p>在Java类中放置一个使用<code>native</code>关键字表示的本地方法，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pulic <span class="class"><span class="keyword">class</span> <span class="title">HelloJni</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">      *类似于抽象方法不提供方法的具体实现</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">hello</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>为实现这个方法需建立一个与之对应的C语言函数。为了与之对应，必须使用完整Java方法名,例如:<code>com.jay86.HelloJni,hello</code>，然后将<code>.</code>替换为<code>_</code>并加上<code>Java_</code>前缀，例如：<code>Java_com_jay86_HelloJni_hello</code>。完整代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_jay86_HelloJni_hello(</span><br><span class="line">        JNIEnv* env <span class="comment">/*调用jni函数需要用到的东西，下面会看到*/</span>,</span><br><span class="line">        jclass cl <span class="comment">/*非静态时是jobject相当于this，静态时是jclass相当于Class*/</span>) &#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> hello = <span class="string">"Hello from C++"</span>;</span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(hello.c_str());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>最后在HelloJni类中加载它:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pulic <span class="class"><span class="keyword">class</span> <span class="title">HelloJni</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="comment">/*native-lib是C\C++的文件名*/</span></span><br><span class="line">        System.loadLibrary(<span class="string">"native-lib"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">      *类似于抽象方法不提供方法的具体实现</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">hello</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样，一个jni程序就完成了。但是jni程序还有更多需要学习的。</p>
-<h1 id="参数传递与返回值"><a href="#参数传递与返回值" class="headerlink" title="参数传递与返回值"></a>参数传递与返回值</h1><h2 id="Java数据类型与C语言数据类型对应关系"><a href="#Java数据类型与C语言数据类型对应关系" class="headerlink" title="Java数据类型与C语言数据类型对应关系"></a>Java数据类型与C语言数据类型对应关系</h2><table>
-<thead>
-<tr>
-<th>Java</th>
-<th>C</th>
-<th style="text-align:center">字节</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>boolean</td>
-<td>jboolean</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td>byte</td>
-<td>jbyte</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td>char</td>
-<td>jchar</td>
-<td style="text-align:center">2</td>
-</tr>
-<tr>
-<td>short</td>
-<td>jshort</td>
-<td style="text-align:center">2</td>
-</tr>
-<tr>
-<td>int</td>
-<td>jint</td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td>long</td>
-<td>jlong</td>
-<td style="text-align:center">8</td>
-</tr>
-<tr>
-<td>float</td>
-<td>jfloat</td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td>double</td>
-<td>jdouble</td>
-<td style="text-align:center">8</td>
-</tr>
-</tbody>
-</table>
-<h2 id="实现简单参数传递"><a href="#实现简单参数传递" class="headerlink" title="实现简单参数传递"></a>实现简单参数传递</h2><p>ps:方便起见，直接在之前的代码中添加了两个参数，并没有对其做任何操作。</p>
+<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p>确保某一个类只有一个实例，并且自行实例化并向这个系统提供这个实例。实现关键点：</p>
 <ul>
-<li><p>Java中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pulic <span class="class"><span class="keyword">class</span> <span class="title">HelloJni</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.loadLibrary(<span class="string">"native-lib"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">hello</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">double</span> b)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>C中</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> <span class="comment">/*C++需要添加上这一句，不太清楚原因*/</span></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_com_jay86_HelloJni_hello(</span><br><span class="line">        JNIEnv* env,</span><br><span class="line">        jclass cl， jint a, jdouble b) &#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> hello = <span class="string">"Hello from C++"</span>;</span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(hello.c_str());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>构造函数不对外开放</li>
+<li>通过一个静态方法或者枚举返回单例类对象</li>
+<li>确保单例类的对象有且只有一个，尤其是在多线程环境下</li>
+<li>确保单例类对象在反序列化时不会重新构建对象</li>
 </ul>
-<h2 id="字符串参数"><a href="#字符串参数" class="headerlink" title="字符串参数"></a>字符串参数</h2><p>由于C语言和Java语言的字符串存在一系列的不同，传递字符串时需要进行一些处理：</p>
+<h2 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>jstring -&gt; char*</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jString jstr = <span class="string">"hello world"</span>;</span><br><span class="line"><span class="keyword">char</span>* cstr = (*env)-&gt;GetStringUTFChars(env, jstr, <span class="literal">NULL</span>);</span><br><span class="line"><span class="comment">//不再访问时释放</span></span><br><span class="line">(*env)-&gt;ReleaseStringUtf(env, format, cformat);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>char* -&gt; jstring</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C</span></span><br><span class="line"><span class="keyword">char</span> cstr[] = <span class="string">"hello world"</span>;</span><br><span class="line">jstring jstr;</span><br><span class="line">jstr = (*env)-&gt;NewStringUTF(env, cstr);</span><br><span class="line"></span><br><span class="line"><span class="comment">//C++</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> hello = <span class="string">"Hello from C++"</span>;</span><br><span class="line">jstring jstr;</span><br><span class="line">jstr = env-&gt;NewStringUTF(hello.c_str());</span><br></pre></td></tr></table></figure>
-</li>
+<li>优点：实现简单，多线程安全</li>
+<li>缺点：不管有没有使用都会被初始化，浪费资源</li>
 </ul>
-<h2 id="访问域"><a href="#访问域" class="headerlink" title="访问域"></a>访问域</h2>
+<h2 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton sInstance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (sInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">          sInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>优点：使用时加载，一定程度上节省了资源</li>
+<li>缺点：第一次加载时速度较慢，且每次获取实例都需要进行同步，开销较大</li>
+</ul>
+<h2 id="Double-Check-Lock-DLC"><a href="#Double-Check-Lock-DLC" class="headerlink" title="Double Check Lock(DLC)"></a>Double Check Lock(DLC)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton sInstance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//避免不必要的同步</span></span><br><span class="line">        <span class="keyword">if</span> (sInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">synchronized</span> (sInstance) &#123;</span><br><span class="line">               <span class="comment">//在对象为null时创建实例，确保只会创建一次</span></span><br><span class="line">               <span class="keyword">if</span> (sInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">                   sInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>优点：资源利用率高，延时实例化</li>
+<li>缺点：第一次加载时稍慢</li>
+</ul>
+<h2 id="静态内部类方式"><a href="#静态内部类方式" class="headerlink" title="静态内部类方式"></a>静态内部类方式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SingletonHolder.INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">final</span> <span class="title">SingletonHolder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton sInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>优点：延时加载、线程安全</li>
+<li>缺点：实现较复杂</li>
+</ul>
+<p>以上方法在反序列化时会重复创建对象，解决方法为在类中添加以下方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Object <span class="title">readResolve</span><span class="params">()</span> <span class="keyword">throws</span> ObjectStreamException </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> sIntance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="枚举方式"><a href="#枚举方式" class="headerlink" title="枚举方式"></a>枚举方式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> SingletonEnum &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>优点：延时加载、线程安全、反序列化同样为单例</li>
+</ul>
+<h1 id="Builder模式"><a href="#Builder模式" class="headerlink" title="Builder模式"></a>Builder模式</h1><p>主要用于将一个复杂对象的构建与它的表示分离</p>
+
       
     </div>
 
@@ -532,16 +491,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Android/" rel="tag"># Android</a>
-          
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-            <a href="/tags/jni/" rel="tag"># jni</a>
-          
-        </div>
-      
 
       
         
@@ -551,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/20/4R2RFR.html" rel="next" title="通过Gradle将库提交至binary">
-                <i class="fa fa-chevron-left"></i> 通过Gradle将库提交至binary
+              <a href="/2019/07/13/168K6ZG.html" rel="next" title="Glide源码解析">
+                <i class="fa fa-chevron-left"></i> Glide源码解析
               </a>
             
           </div>
@@ -560,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/16/35FZ000.html" rel="prev" title="Git常用命令">
-                Git常用命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -746,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用目的"><span class="nav-number">1.</span> <span class="nav-text">使用目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单使用"><span class="nav-number">2.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参数传递与返回值"><span class="nav-number">3.</span> <span class="nav-text">参数传递与返回值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java数据类型与C语言数据类型对应关系"><span class="nav-number">3.1.</span> <span class="nav-text">Java数据类型与C语言数据类型对应关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现简单参数传递"><span class="nav-number">3.2.</span> <span class="nav-text">实现简单参数传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串参数"><span class="nav-number">3.3.</span> <span class="nav-text">字符串参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问域"><span class="nav-number">3.4.</span> <span class="nav-text">访问域</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#六大原则"><span class="nav-number">1.</span> <span class="nav-text">六大原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">2.</span> <span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#饿汉式"><span class="nav-number">2.1.</span> <span class="nav-text">饿汉式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懒汉式"><span class="nav-number">2.2.</span> <span class="nav-text">懒汉式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Double-Check-Lock-DLC"><span class="nav-number">2.3.</span> <span class="nav-text">Double Check Lock(DLC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态内部类方式"><span class="nav-number">2.4.</span> <span class="nav-text">静态内部类方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举方式"><span class="nav-number">2.5.</span> <span class="nav-text">枚举方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Builder模式"><span class="nav-number">3.</span> <span class="nav-text">Builder模式</span></a></li></ol></div>
             
 
           </div>
